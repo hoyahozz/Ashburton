@@ -3,9 +3,13 @@ plugins {
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.kotlin.serialization)
   alias(libs.plugins.ktlint)
+  alias(libs.plugins.ksp)
+  alias(libs.plugins.androidx.room)
+  alias(libs.plugins.compose.screenshot)
 }
 
 android {
+  experimentalProperties["android.experimental.enableScreenshotTest"] = true
   namespace = "com.hoyahozz.ashburton"
   compileSdk = 37
   defaultConfig {
@@ -69,6 +73,15 @@ dependencies {
   androidTestImplementation(libs.androidx.test.ext.junit)
   androidTestImplementation(libs.androidx.test.runner)
   androidTestImplementation(libs.androidx.test.espresso.core)
+  testImplementation(libs.junit)
+  androidTestImplementation(libs.androidx.room.runtime)
+  androidTestImplementation(libs.androidx.sqlite.framework)
+  androidTestImplementation(libs.kotlinx.coroutines.test)
+  kspAndroidTest(libs.androidx.room.compiler)
+  screenshotTestImplementation(composeBom)
+  screenshotTestImplementation(libs.androidx.compose.ui.tooling)
+  screenshotTestImplementation(libs.androidx.compose.ui.tooling.preview)
+  screenshotTestImplementation(libs.screenshot.validation.api)
 
   // Navigation
   implementation(libs.androidx.navigation3.ui)
@@ -77,4 +90,8 @@ dependencies {
 
 ktlint {
   version.set(libs.versions.ktlint)
+}
+
+room3 {
+  schemaDirectory(layout.buildDirectory.dir("generated/roomSchemas").get().asFile.path)
 }
