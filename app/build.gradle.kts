@@ -2,46 +2,47 @@ plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.kotlin.serialization)
+  alias(libs.plugins.ktlint)
 }
 
 android {
-    namespace = "com.hoyahozz.ashburton"
-    compileSdk = 37
-    defaultConfig {
-        applicationId = "com.hoyahozz.ashburton"
-        minSdk = 26
-        targetSdk = 37
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
+  namespace = "com.hoyahozz.ashburton"
+  compileSdk = 37
+  defaultConfig {
+    applicationId = "com.hoyahozz.ashburton"
+    minSdk = 26
+    targetSdk = 37
+    versionCode = 1
+    versionName = "1.0"
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+  }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
-        }
+  buildTypes {
+    release {
+      isMinifyEnabled = false
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    buildFeatures {
-      compose = true
-      aidl = false
-      buildConfig = false
-      shaders = false
-    }
+  }
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+  }
+  buildFeatures {
+    compose = true
+    aidl = false
+    buildConfig = false
+    shaders = false
+  }
 
-    packaging {
-      resources {
-        excludes += "/META-INF/{AL2.0,LGPL2.1}"
-      }
+  packaging {
+    resources {
+      excludes += "/META-INF/{AL2.0,LGPL2.1}"
     }
+  }
 }
 
 kotlin {
-    jvmToolchain(17)
+  jvmToolchain(17)
 }
 
 dependencies {
@@ -72,4 +73,8 @@ dependencies {
   // Navigation
   implementation(libs.androidx.navigation3.ui)
   implementation(libs.androidx.navigation3.runtime)
+}
+
+ktlint {
+  version.set(libs.versions.ktlint)
 }

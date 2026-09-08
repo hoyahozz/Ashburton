@@ -54,10 +54,9 @@ class AshburtonNavigationState(
     set(value) {
       savedTopLevelRoute = value
     }
+
   @Composable
-  fun decoratedEntries(
-    entryProvider: (NavKey) -> NavEntry<NavKey>,
-  ): List<NavEntry<NavKey>> {
+  fun decoratedEntries(entryProvider: (NavKey) -> NavEntry<NavKey>): List<NavEntry<NavKey>> {
     val decoratedEntries =
       backStacks.mapValues { (_, backStack) ->
         rememberDecoratedNavEntries(

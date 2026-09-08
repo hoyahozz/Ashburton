@@ -47,11 +47,7 @@ fun RootPlaceholderScreen(
 }
 
 @Composable
-fun DetailPlaceholderScreen(
-  title: String,
-  stableId: String,
-  modifier: Modifier = Modifier,
-) {
+fun DetailPlaceholderScreen(title: String, stableId: String, modifier: Modifier = Modifier) {
   Column(
     modifier = modifier.fillMaxSize().padding(32.dp),
     verticalArrangement = Arrangement.Center,

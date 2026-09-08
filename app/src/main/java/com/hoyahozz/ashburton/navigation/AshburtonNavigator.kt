@@ -1,8 +1,6 @@
 package com.hoyahozz.ashburton.navigation
 
-class AshburtonNavigator(
-  private val state: AshburtonNavigationState,
-) {
+class AshburtonNavigator(private val state: AshburtonNavigationState) {
   fun navigate(route: AshburtonRoute) {
     if (route is TopLevelRoute) {
       state.currentTopLevelRoute = route
