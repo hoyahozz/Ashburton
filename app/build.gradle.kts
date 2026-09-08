@@ -6,6 +6,7 @@ plugins {
   alias(libs.plugins.ksp)
   alias(libs.plugins.androidx.room)
   alias(libs.plugins.compose.screenshot)
+  alias(libs.plugins.androidx.baselineprofile)
 }
 
 android {
@@ -86,6 +87,8 @@ dependencies {
   // Navigation
   implementation(libs.androidx.navigation3.ui)
   implementation(libs.androidx.navigation3.runtime)
+  implementation(libs.androidx.profileinstaller)
+  baselineProfile(project(":benchmark"))
 }
 
 ktlint {
@@ -94,4 +97,9 @@ ktlint {
 
 room3 {
   schemaDirectory(layout.buildDirectory.dir("generated/roomSchemas").get().asFile.path)
+}
+
+baselineProfile {
+  automaticGenerationDuringBuild = false
+  saveInSrc = true
 }

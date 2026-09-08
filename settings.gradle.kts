@@ -31,3 +31,4 @@ plugins {
 
 rootProject.name = "Ashburton"
 include(":app")
+include(":benchmark")
