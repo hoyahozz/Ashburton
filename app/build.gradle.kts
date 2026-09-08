@@ -55,21 +55,16 @@ dependencies {
   implementation(composeBom)
   androidTestImplementation(composeBom)
 
-  // Core Android dependencies
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
   implementation(libs.androidx.activity.compose)
 
-  // Compose
   implementation(libs.androidx.compose.ui)
   implementation(libs.androidx.compose.material3)
-  // Tooling
   debugImplementation(libs.androidx.compose.ui.tooling)
-  // Instrumented tests
   androidTestImplementation(libs.androidx.compose.ui.test.junit4)
   debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-  // Instrumented tests: jUnit rules and runners
   androidTestImplementation(libs.androidx.test.core)
   androidTestImplementation(libs.androidx.test.ext.junit)
   androidTestImplementation(libs.androidx.test.runner)
@@ -84,7 +79,6 @@ dependencies {
   screenshotTestImplementation(libs.androidx.compose.ui.tooling.preview)
   screenshotTestImplementation(libs.screenshot.validation.api)
 
-  // Navigation
   implementation(libs.androidx.navigation3.ui)
   implementation(libs.androidx.navigation3.runtime)
   implementation(libs.androidx.profileinstaller)

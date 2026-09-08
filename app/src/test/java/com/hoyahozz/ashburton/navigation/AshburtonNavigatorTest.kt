@@ -8,7 +8,7 @@ import org.junit.Test
 
 class AshburtonNavigatorTest {
   @Test
-  fun navigationKeepsTopLevelHistoryIsolatedAndBackReturnsToStart() {
+  fun backPopsTheSelectedTabBeforeReturningToMatches() {
     val state =
       AshburtonNavigationState(
         startRoute = MatchesRoot,

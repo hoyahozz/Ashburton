@@ -12,7 +12,7 @@ import org.junit.Test
 @OptIn(ExperimentalTestApi::class)
 class AshburtonNavigationTest {
   @Test
-  fun eachTopLevelRouteRetainsItsBackStack() = runComposeUiTest {
+  fun switchingTabsKeepsEachDetailScreen() = runComposeUiTest {
     setContent { AshburtonTheme { AshburtonApp() } }
 
     onNodeWithText("Squad").performClick()
@@ -28,7 +28,7 @@ class AshburtonNavigationTest {
   }
 
   @Test
-  fun selectedRouteSurvivesStateRestoration() = runComposeUiTest {
+  fun restoringStateReopensTheSelectedStory() = runComposeUiTest {
     val restorationTester = StateRestorationTester(this)
     restorationTester.setContent { AshburtonTheme { AshburtonApp() } }
 

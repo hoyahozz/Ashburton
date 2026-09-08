@@ -101,7 +101,7 @@ class StoryRepositoryRoomIntegrationTest {
   }
 
   @Test
-  fun replacingStoriesRemovesStaleRowsAndReturnsDeterministicNewestFirst() = runTest {
+  fun replacingStoriesDropsOldRowsAndSortsByDateThenId() = runTest {
     repository.replaceStories(
       listOf(
         TestStory("stale", "Old story", 100),

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare freshly generated Room schemas with the reviewed baseline."""
+"""Check generated Room schemas against the committed JSON files."""
 
 from pathlib import Path
 import sys
